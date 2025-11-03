@@ -10,5 +10,7 @@ public class Practice8 {
         } else if (b >= c) {
             max = b;
         } else max = c;
+
+        System.out.printf("최댓값: %d", max);
     }
 }
