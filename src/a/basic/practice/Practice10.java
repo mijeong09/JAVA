@@ -17,7 +17,7 @@ public class Practice10 {
         if (isMember == true) {
             discount += 0.05;
         }
-        disPrice = price + (int)(price * discount);
+        disPrice = price - (int)(price * discount);
         System.out.printf("원가: %d원 \n", price);
         System.out.printf("할인율: %f \n", discount * 100);
         System.out.printf("최종 금액: %d원", disPrice);

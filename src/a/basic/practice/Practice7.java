@@ -17,6 +17,6 @@ public class Practice7 {
             bmi = "비만";
         }
 
-        System.out.printf("BMI: %f \r\n%s 체중입니다.", BMI, bmi);
+        System.out.printf("BMI: %f \n%s 체중입니다.", BMI, bmi);
     }
 }
