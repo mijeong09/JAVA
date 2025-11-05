@@ -1,5 +1,7 @@
 package a.basic;
 
+import java.util.Arrays;
+
 public class Array {
     public static void main(String[] args) {
         // 배열 선언, 크기지정
@@ -68,5 +70,59 @@ public class Array {
                 System.out.println(item);
             }
         }
+
+
+        // Array 유틸리티 클래스
+        int[] nums = {5, 2, 1, 7, 8};
+
+        // 참조형이기 때문에데이터 주소가 출력됨
+        // System.out.println(nums);
+        // - toString() : 배열을 문자열로
+        System.out.println(Arrays.toString(nums));
+
+        // - sort() : 정렬
+        Arrays.sort(nums);
+        System.out.println(Arrays.toString(nums));
+
+        // - binarySearch() : 이진 탐색
+        // 배열이 정렬되어 있어야 이진 탐색 동작이 가능함
+        int idx = Arrays.binarySearch(nums, 7);
+        System.out.println(idx);
+
+        // - fill() : 배열 채우기
+        int[] filled = new int[10];
+        Arrays.fill(filled, 99);
+        System.out.println(Arrays.toString(filled));
+
+        int[] origin = {1, 2, 3, 4, 5};
+        // origin의 데이터를 가져와서 새로운 주소를 만듦
+        int[] copied = Arrays.copyOf(origin, origin.length);
+        System.out.println(Arrays.toString(copied));
+
+        // copyOf와 달리 origin과 같은 데이터 주소를 가짐
+        int[] copied2 = origin;
+        System.out.println(Arrays.toString(copied2));
+        System.out.println();
+        origin[0] = 100;
+
+        System.out.println(Arrays.toString(origin));
+        System.out.println(Arrays.toString(copied));
+        System.out.println(Arrays.toString(copied2));
+
+        int[] ranged = Arrays.copyOfRange(origin, 1, 3);
+        System.out.println(Arrays.toString(ranged));
+
+        int[] arrA = {1, 2, 3};
+        int[] arrB = {1, 2, 3};
+
+        // 데이터 주소값이 다름
+        System.out.println(arrA == arrB);
+        System.out.println(Arrays.equals(arrA, arrB));
+
+        // - deepToString() : 다차원 배열 출력
+        int[][] mat = {{1, 2}, {3, 4}};
+        System.out.println(Arrays.deepToString(mat));
+
+        origin[99] = 100;
     }
 }
