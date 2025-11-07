@@ -124,8 +124,8 @@ public class ShopManager {
         for(int i=0; i<orderCount ; i++){
             // id :orders[i].getOrderId()
             //총금액원
-            orders[i].getTotalAmount(this);
-            System.out.println((i+1) + ". [" + orders[i].getOrderId() + "] " + orders[i].getTotalAmount(this) + "원 (" + orders[i].getStatus() + ")");
+            orders[i].getTotalAmount();
+            System.out.println((i+1) + ". [" + orders[i].getOrderId() + "] " + orders[i].getTotalAmount() + "원 (" + orders[i].getStatus() + ")");
         }
 
     }

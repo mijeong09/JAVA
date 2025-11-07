@@ -36,8 +36,7 @@ public class Order {
         return itemCount;
     }
 
-    public int getTotalAmount(ShopManager manager) {
-        this.calculateTotal(manager);
+    public int getTotalAmount() {
         return totalAmount;
     }
 
@@ -47,7 +46,7 @@ public class Order {
 
     public void addItem(String productId, int quantity){
         if(itemCount >= 10){
-            System.out.println("");
+            System.out.println("10개 까지만 가능합니다.");
         }else{
             if(quantity >=1 ){
                 productIds[itemCount]=productId;
