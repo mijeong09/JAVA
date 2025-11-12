@@ -35,19 +35,29 @@ public class Practice03 {
     }
 
     public static int maxSubArraySum(ArrayList<Integer> list, int k) {
-        // 여기에 코드 작성 (Sliding Window)
-        int max = 0;
-        for(int i = 0; i <= list.size() - k; i++) {
-            int sum = 0;
-            for(Integer num : list.subList(i, (i + k))) {
-                sum += num;
-            }
-            System.out.println(sum);
-            if (sum > max) {
-                max = sum;
-                sum = 0;
-            }
+        // Sliding Window 알고리즘 방식으로 풀이
+        int sum = 0;
+        for (int i = 0; i < k; i++) {
+            sum += list.get(i);
         }
+        int max = sum;
+        for(int i = k; i < list.size(); i++) {
+            sum += list.get(i) - list.get(i - k);
+            if(sum > max) max = sum;
+        }
+
+//        int max = 0;
+//        for(int i = 0; i <= list.size() - k; i++) {
+//            int sum = 0;
+//            for(Integer num : list.subList(i, (i + k))) {
+//                sum += num;
+//            }
+//            System.out.println(sum);
+//            if (sum > max) {
+//                max = sum;
+//                sum = 0;
+//            }
+//        }
         return max;
     }
 }
