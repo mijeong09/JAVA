@@ -33,28 +33,53 @@ public class Practice04 {
     }
 
     public static ArrayList<ArrayList<Integer>> countFrequency(ArrayList<Integer> list) {
+//        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+//        ArrayList<Integer> numList = new ArrayList<>();
+//
+//        if(list == null || list.isEmpty()) return new ArrayList<>();
+//
+//        for (int i = 0; i < list.size(); i++) {
+//            int number = list.get(i);
+//            int count = 0;
+//
+//            if(numList.contains(list.get(i))) continue;
+//
+//            for (Integer num : list) {
+//                if(num == number) {
+//                    count++;
+//                }
+//            }
+//            ArrayList<Integer> pair = new ArrayList<>();
+//            pair.add(number);
+//            pair.add(count);
+//
+//            result.add(pair);
+//            numList.add(number);
+//        }
+//
+//        return result;
+
+        // 다른 풀이
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        ArrayList<Integer> numList = new ArrayList<>();
 
-        for (int i = 0; i < list.size(); i++) {
-            int number = list.get(i);
-            int count = 0;
+        for (int num : list) {
+            boolean found = false;
 
-            if(numList.contains(list.get(i))) continue;
-
-            for (Integer num : list) {
-                if(num == number) {
-                    count++;
+            for (ArrayList<Integer> pair : result) {
+                if(pair.get(0) == num) {
+                    pair.set(1, pair.get(1) + 1);
+                    found = true;
+                    break;
                 }
             }
-            ArrayList<Integer> pair = new ArrayList<>();
-            pair.add(number);
-            pair.add(count);
 
-            result.add(pair);
-            numList.add(number);
+            if (!found) {
+                ArrayList<Integer> pairList = new ArrayList<>();
+                pairList.add(num);
+                pairList.add(1);
+                result.add(pairList);
+            }
         }
-
         return result;
     }
 }

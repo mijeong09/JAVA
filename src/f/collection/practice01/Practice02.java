@@ -30,14 +30,14 @@ public class Practice02 {
     public static int findAfterRotation(ArrayList<Integer> list, int k, int target) {
         int index;
 
-        for(int i = 0; i < k; i++) {
-            list.add(list.get(0));
-            list.remove(0);
-        }
-        if(list.isEmpty()) {
+        if(list.isEmpty() || list == null) {
             return -1;
         }
 
+        for(int i = 0; i < k % list.size(); i++) {
+            list.add(list.get(0));
+            list.remove(0);
+        }
         return list.indexOf(target);
     }
 }

@@ -28,23 +28,21 @@ public class Practice01 {
 
     public static int findSecondLargest(ArrayList<Integer> list) {
         // 여기에 코드 작성
-        int max = list.get(0);
-        int secondMax = 0;
-        boolean isEqual = true;
+        int max = -1;
+        int secondMax = -1;
 
-        for (Integer num : list) {
-            if(max <= num) {
+        if (list == null || list.size() < 2) {
+            return -1;
+        }
+
+        for (int num : list) {
+            if(max < num) {
+                secondMax = max;
                 max = num;
-            } else if (secondMax < num) {
+            } else if (secondMax < num && max != num) {
                 secondMax = num;
             }
-            int temp = list.get(0);
-            if(temp != num) {
-                isEqual = false;
-            }
-        }
-        if(isEqual) {
-            return -1;
+
         }
         return secondMax;
     }
